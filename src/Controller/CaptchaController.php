@@ -3,7 +3,7 @@
  * captcha/src/Controller/CaptchaController.php
  * @author     Arvind Kumar
  * @link       https://captcha.inimisttech.com
- * @copyright  Copyright © 2019 https://inimisttech.com
+ * @copyright  Copyright Â© 2019 https://inimisttech.com
  * @version 1.1 - Tested with Cakephp 3.8.x
  */
 
@@ -25,6 +25,7 @@ class CaptchaController extends AppController
     public function beforeFilter(\Cake\Event\Event $event)
     {
         if(isset($this->Auth) && is_object($this->Auth)) $this->Auth->allow(['create']);
+        if(isset($this->Authorization) && is_object($this->Authorization)) $this->Authentication->allowUnauthenticated(['create']);
     }
     function create()	{
         $this->autoRender = false;
